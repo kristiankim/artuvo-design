@@ -1,0 +1,26 @@
+{
+  "name": "artuvo-design",
+  "version": "1.0.0",
+  "description": "A design-led website for Artuvo Design — a creative studio building considered, credible websites for founders and local businesses.",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "lint": "echo 'No linter configured for static HTML project'",
+    "test": "echo 'No tests configured for static HTML project'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kristiankim/artuvo-design.git"
+  },
+  "keywords": [
+    "design",
+    "website",
+    "static"
+  ],
+  "author": "Artuvo Design",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.14"
+  },
+  "devDependencies": {}
+}
