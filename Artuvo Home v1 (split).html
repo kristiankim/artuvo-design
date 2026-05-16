@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Artuvo Design — Design-led websites for founders and local businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --charcoal: #0F0F10;
+    --blue-gray: #8FA1B3;
+    --warm-gray: #D5D7DB;
+    --taupe: #C8B6A2;
+    --stone: #F6F3EF;
+    --ink-70: rgba(15, 15, 16, 0.72);
+    --ink-55: rgba(15, 15, 16, 0.55);
+    --ink-40: rgba(15, 15, 16, 0.4);
+    --ink-12: rgba(15, 15, 16, 0.12);
+    --ink-08: rgba(15, 15, 16, 0.08);
+
+    --serif: "Newsreader", "Canela", "Iowan Old Style", Georgia, serif;
+    --sans: "Hanken Grotesk", "Suisse Int'l", system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--sans);
+    color: var(--charcoal);
+    background: var(--stone);
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* PAGE -------------------------------------------------- */
+  .page {
+    display: grid;
+    grid-template-columns: 30fr 70fr;
+    height: 100vh;
+    min-height: 720px;
+  }
+
+  /* LEFT -------------------------------------------------- */
+  .left {
+    padding: 36px 48px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-right: 1px solid var(--ink-08);
+  }
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand svg.mark { width: 30px; height: 30px; display: block; }
+  .brand .wm {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.42em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .nav {
+    display: flex;
+    gap: 22px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+  }
+  .nav a { color: inherit; text-decoration: none; transition: color .2s; }
+  .nav a:hover { color: var(--charcoal); }
+
+  /* hero block */
+  .hero {
+    margin-top: auto;
+    margin-bottom: 12px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--ink-40);
+    display: inline-block;
+  }
+  h1.studio {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(46px, 4.4vw, 76px);
+    line-height: 0.98;
+    letter-spacing: -0.022em;
+    margin-bottom: 26px;
+    text-wrap: balance;
+  }
+  h1.studio em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--blue-gray);
+  }
+  .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(17px, 1.15vw, 20px);
+    line-height: 1.42;
+    color: var(--ink-70);
+    max-width: 34ch;
+    text-wrap: pretty;
+  }
+
+  /* services */
+  .services {
+    margin-top: 44px;
+  }
+  .services-head {
+    font-size: 10.5px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--ink-12);
+    display: flex;
+    justify-content: space-between;
+  }
+  .services-head .count { color: var(--ink-40); }
+  .service {
+    border-bottom: 1px solid var(--ink-08);
+  }
+  .service-head {
+    display: grid;
+    grid-template-columns: 28px 1fr 18px;
+    align-items: baseline;
+    padding: 13px 0 14px;
+    gap: 14px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+    transition: padding .25s ease;
+  }
+  .service-head:hover { padding-left: 6px; }
+  .service-head .num {
+    font-size: 10.5px;
+    color: var(--ink-40);
+    letter-spacing: 0.14em;
+    font-variant-numeric: tabular-nums;
+  }
+  .service-head .name {
+    font-family: var(--serif);
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .service-head .chev {
+    width: 14px; height: 14px;
+    color: var(--ink-40);
+    transition: transform .35s ease, color .2s;
+    justify-self: end;
+  }
+  .service[data-open="1"] .service-head .chev { transform: rotate(180deg); color: var(--charcoal); }
+  .service[data-open="1"] .service-head .name { color: var(--charcoal); }
+  .service-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s ease;
+  }
+  .service[data-open="1"] .service-panel { grid-template-rows: 1fr; }
+  .service-panel-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+  .service-desc {
+    padding: 0 0 18px 42px;
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-70);
+    max-width: 42ch;
+    text-wrap: pretty;
+  }
+
+  /* CTA */
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 26px;
+    padding: 18px 4px 18px 18px;
+    background: var(--charcoal);
+    color: var(--stone);
+    text-decoration: none;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s ease;
+  }
+  .cta:hover { transform: translateY(-2px); }
+  .cta .cta-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.1;
+  }
+  .cta .cta-lede {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .cta .cta-lede em { font-style: italic; font-weight: 300; color: var(--taupe); }
+  .cta .cta-sub {
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(246,243,239,0.55);
+  }
+  .cta .cta-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--stone);
+    color: var(--charcoal);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    transition: transform .35s ease, background .25s ease;
+  }
+  .cta:hover .cta-arrow { transform: rotate(-45deg); background: var(--taupe); }
+  .cta .cta-arrow svg { width: 16px; height: 16px; display: block; }
+
+  /* foot */
+  .foot {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+  }
+  .foot a { color: inherit; text-decoration: none; }
+  .foot a:hover { color: var(--charcoal); }
+  .foot .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #58a06b;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+    box-shadow: 0 0 0 3px rgba(88,160,107,0.18);
+  }
+
+  /* RIGHT ------------------------------------------------- */
+  .right {
+    position: relative;
+    overflow: hidden;
+    background: var(--stone);
+  }
+  .right::before,
+  .right::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    height: 96px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .right::before {
+    top: 0;
+    background: linear-gradient(to bottom, var(--stone) 10%, rgba(246, 243, 239, 0));
+  }
+  .right::after {
+    bottom: 0;
+    background: linear-gradient(to top, var(--stone) 10%, rgba(246, 243, 239, 0));
+  }
+
+  .right-meta {
+    position: absolute;
+    top: 36px;
+    right: 40px;
+    z-index: 4;
+    text-align: right;
+    font-size: 10.5px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+  }
+  .right-meta .yr {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--ink-70);
+    margin-top: 6px;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 22px;
+    height: 100%;
+  }
+
+  .col {
+    overflow: hidden;
+    position: relative;
+  }
+  .col-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    animation-duration: 70s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    will-change: transform;
+  }
+  .col-up .col-inner { animation-name: scroll-up; }
+  .col-down .col-inner { animation-name: scroll-down; }
+  @keyframes scroll-up {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+  }
+  @keyframes scroll-down {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(0); }
+  }
+  .right:hover .col-inner { animation-play-state: paused; }
+
+  /* CARDS ------------------------------------------------- */
+  .card {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    aspect-ratio: var(--ar, 4 / 5);
+    background: var(--warm-gray);
+    flex-shrink: 0;
+    color: var(--stone);
+    isolation: isolate;
+  }
+  .card .art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .card .label {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 16px 18px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+    z-index: 2;
+    background: linear-gradient(
+      to top,
+      rgba(15,15,16,0.55) 0%,
+      rgba(15,15,16,0.18) 50%,
+      rgba(15,15,16,0) 100%
+    );
+  }
+  .card.light .label {
+    color: var(--charcoal);
+    background: linear-gradient(
+      to top,
+      rgba(246,243,239,0.85) 0%,
+      rgba(246,243,239,0.35) 55%,
+      rgba(246,243,239,0) 100%
+    );
+  }
+  .card .ttl {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.005em;
+    line-height: 1.1;
+  }
+  .card .tag {
+    font-size: 9.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    opacity: 0.78;
+    white-space: nowrap;
+  }
+  .card .idx {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    z-index: 2;
+    opacity: 0.7;
+    font-variant-numeric: tabular-nums;
+  }
+  .card.light .idx { color: var(--ink-55); }
+
+  /* ============ TWEAKS MODE ============ */
+  [data-tw-removed="1"] { display: none !important; }
+
+  body.tweaks-on [data-tw-id] { cursor: crosshair; }
+  body.tweaks-on [data-tw-id]:hover {
+    outline: 1px dashed #d97757;
+    outline-offset: 2px;
+  }
+  body.tweaks-on [data-tw-selected] {
+    outline: 2px solid #d97757 !important;
+    outline-offset: 3px;
+    background-image: linear-gradient(rgba(217,119,87,0.06), rgba(217,119,87,0.06));
+  }
+
+  .tw-panel {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid var(--ink-12);
+    border-radius: 8px;
+    box-shadow: 0 18px 40px -16px rgba(15,15,16,0.25), 0 2px 8px rgba(15,15,16,0.06);
+    font-family: var(--sans);
+    color: var(--charcoal);
+    z-index: 9999;
+    overflow: hidden;
+    display: none;
+  }
+  body.tweaks-on .tw-panel { display: block; }
+  .tw-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--ink-08);
+    cursor: grab;
+    user-select: none;
+  }
+  .tw-head:active { cursor: grabbing; }
+  .tw-title {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .tw-close {
+    background: none;
+    border: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--ink-55);
+    display: grid;
+    place-items: center;
+  }
+  .tw-close:hover { background: var(--ink-08); color: var(--charcoal); }
+  .tw-body { padding: 14px; }
+  .tw-help {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--ink-70);
+    margin-bottom: 12px;
+  }
+  .tw-help kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10.5px;
+    background: var(--ink-08);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--charcoal);
+  }
+  .tw-selection {
+    background: var(--stone);
+    border: 1px solid var(--ink-08);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    min-height: 48px;
+  }
+  .tw-selection-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-55);
+    margin-bottom: 4px;
+  }
+  .tw-selection-value {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11.5px;
+    color: var(--charcoal);
+    word-break: break-all;
+  }
+  .tw-selection.empty .tw-selection-value { color: var(--ink-40); font-family: var(--sans); font-style: italic; }
+  .tw-row { display: flex; gap: 8px; }
+  .tw-btn {
+    flex: 1;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 9px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--ink-12);
+    background: #fff;
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+  }
+  .tw-btn:hover:not(:disabled) { background: var(--stone); border-color: var(--ink-40); }
+  .tw-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .tw-btn.primary {
+    background: var(--charcoal);
+    color: var(--stone);
+    border-color: var(--charcoal);
+  }
+  .tw-btn.primary:hover:not(:disabled) { background: #d97757; border-color: #d97757; }
+  .tw-meta {
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-40);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--ink-12);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* responsive guardrails */
+  @media (max-width: 1024px) {
+    .page { grid-template-columns: 38fr 62fr; }
+    .left { padding: 28px 32px; }
+  }
+  @media (max-width: 760px) {
+    body { overflow: auto; }
+    .page { grid-template-columns: 1fr; height: auto; min-height: 0; }
+    .left { padding: 28px 24px; border-right: none; border-bottom: 1px solid var(--ink-08); }
+    .right { height: 80vh; }
+  }
+</style>
+</head>
+<body>
+  <main class="page" data-screen-label="01 Home">
+
+    <!-- ============ LEFT ============ -->
+    <section class="left">
+      <div class="top-bar">
+        <div class="brand">
+          <!-- Aperture A mark -->
+          <svg class="mark" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+            <circle cx="30" cy="30" r="30" fill="#0F0F10"/>
+            <!-- sunburst rays from apex -->
+            <g stroke="#F6F3EF" stroke-width="1.1" stroke-linecap="round">
+              <line x1="22" y1="22" x2="10" y2="32"/>
+              <line x1="22" y1="22" x2="12.5" y2="38"/>
+              <line x1="22" y1="22" x2="16" y2="43"/>
+              <line x1="22" y1="22" x2="20" y2="46"/>
+              <line x1="22" y1="22" x2="9" y2="26"/>
+              <line x1="22" y1="22" x2="9" y2="20"/>
+              <line x1="22" y1="22" x2="12" y2="14"/>
+            </g>
+            <!-- A glyph -->
+            <path d="M30 14 L42 46 L37.2 46 L34.4 38.5 L25.6 38.5 L22.8 46 L18 46 L30 14 Z M30 22.4 L26.9 34.6 L33.1 34.6 L30 22.4 Z"
+                  fill="#F6F3EF"/>
+          </svg>
+          <span class="wm">Artuvo</span>
+        </div>
+        <nav class="nav">
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <div class="eyebrow"></div>
+        <h1 class="studio">Artuvo<br/><em>Design</em>.</h1>
+        <p class="lede">A creative studio elevating the quality of services through considered design — clear, credible, and made to earn trust.</p>
+      </div>
+
+      <div class="services" id="services">
+        <div class="services-head">
+          <span>What we do</span>
+          <span class="count">04 — Offers</span>
+        </div>
+
+        <div class="service" data-service>
+          <button class="service-head" type="button" aria-expanded="false">
+            <span class="num">01</span>
+            <span class="name">Website Refresh</span>
+            <svg class="chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 5 7 9 11 5"/></svg>
+          </button>
+          <div class="service-panel"><div class="service-panel-inner"><p class="service-desc">For businesses with an existing site that needs clearer messaging, better structure, stronger visuals, and sharper conversion paths — a practical upgrade, not a full rebuild.</p></div></div>
+        </div>
+
+        <div class="service" data-service>
+          <button class="service-head" type="button" aria-expanded="false">
+            <span class="num">02</span>
+            <span class="name">Starter Website</span>
+            <svg class="chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 5 7 9 11 5"/></svg>
+          </button>
+          <div class="service-panel"><div class="service-panel-inner"><p class="service-desc">A focused 3 – 5 page website for founders and local businesses. Home, about, services, proof, and contact — built to look credible from day one.</p></div></div>
+        </div>
+
+        <div class="service" data-service>
+          <button class="service-head" type="button" aria-expanded="false">
+            <span class="num">03</span>
+            <span class="name">Launch Website</span>
+            <svg class="chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 5 7 9 11 5"/></svg>
+          </button>
+          <div class="service-panel"><div class="service-panel-inner"><p class="service-desc">The full launch: strategy, content structure, design direction, build, basic SEO, analytics setup, and a 30-day post-launch support window.</p></div></div>
+        </div>
+
+        <div class="service" data-service>
+          <button class="service-head" type="button" aria-expanded="false">
+            <span class="num">04</span>
+            <span class="name">Care Plan</span>
+            <svg class="chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 5 7 9 11 5"/></svg>
+          </button>
+          <div class="service-panel"><div class="service-panel-inner"><p class="service-desc">Light ongoing support after launch — content edits, seasonal updates, platform checks, and a monthly look at analytics or inquiries.</p></div></div>
+        </div>
+      </div>
+
+      <a class="cta" href="mailto:hello@artuvo.studio?subject=Project%20inquiry%20%E2%80%94%20Artuvo&body=Hi%20Artuvo%2C%0A%0AA%20bit%20about%20my%20project%3A%0A%0A%E2%80%A2%20What%20I%27m%20building%3A%0A%E2%80%A2%20Timeline%3A%0A%E2%80%A2%20Budget%20range%3A%0A%0AThanks!%0A" id="contact">
+        <span class="cta-copy">
+          <span class="cta-lede">Let&rsquo;s <em>talk</em>.</span>
+          <span class="cta-sub">Free 20-min intro call · Reply in 24h</span>
+        </span>
+        <span class="cta-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="13 6 19 12 13 18"/>
+          </svg>
+        </span>
+      </a>
+
+      <div class="foot">
+        <span><span class="dot"></span>Open · 1 slot, June</span>
+        <a href="mailto:hello@artuvo.studio">HELLO@ARTUVO.DESIGN</a>
+      </div>
+    </section>
+
+    <!-- ============ RIGHT ============ -->
+    <section class="right">
+      <div class="right-meta">
+        <div>Selected Work</div>
+        <div class="yr">Volume 01 · 2025</div>
+      </div>
+
+      <div class="work-grid">
+        <!-- Column 1 — moves UP -->
+        <div class="col col-up">
+          <div class="col-inner" id="colA"></div>
+        </div>
+        <!-- Column 2 — moves DOWN -->
+        <div class="col col-down">
+          <div class="col-inner" id="colB"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+  // ---------------- WORK PLACEHOLDERS ----------------
+  // Each entry describes an abstract, on-brand placeholder card.
+  const works = [
+    { idx: '001', title: 'Meridian Studio',     tag: 'Brand · Web',     ar: '4 / 5',  art: 'arch',     palette: 'charcoal',  light: false },
+    { idx: '002', title: 'Northbank Collective', tag: 'Identity',        ar: '4 / 5',  art: 'aperture', palette: 'stone',     light: true  },
+    { idx: '003', title: 'Halden & Co.',         tag: 'Site Refresh',    ar: '4 / 5',  art: 'rule',     palette: 'bluegray',  light: false },
+    { idx: '004', title: 'Folio — Personal',     tag: 'Launch Site',     ar: '5 / 6',  art: 'stack',    palette: 'taupe',     light: true  },
+    { idx: '005', title: 'Atelier Vorne',        tag: 'Brand System',    ar: '4 / 5',  art: 'arch2',    palette: 'stone',     light: true  },
+    { idx: '006', title: 'Quiet Hours Café',     tag: 'Local · Web',     ar: '4 / 5',  art: 'horizon',  palette: 'charcoal',  light: false },
+    { idx: '007', title: 'Lindgren Law',         tag: 'Refresh',         ar: '4 / 5',  art: 'frame',    palette: 'warmgray',  light: true  },
+    { idx: '008', title: 'Coastline Realty',     tag: 'Launch Site',     ar: '5 / 7',  art: 'mono',     palette: 'bluegray',  light: false }
+  ];
+
+  const palettes = {
+    charcoal: { bg: '#0F0F10', fg: '#F6F3EF', accent: '#C8B6A2' },
+    stone:    { bg: '#F6F3EF', fg: '#0F0F10', accent: '#C8B6A2' },
+    bluegray: { bg: '#8FA1B3', fg: '#F6F3EF', accent: '#0F0F10' },
+    warmgray: { bg: '#D5D7DB', fg: '#0F0F10', accent: '#0F0F10' },
+    taupe:    { bg: '#C8B6A2', fg: '#0F0F10', accent: '#F6F3EF' }
+  };
+
+  // SVG art generators — abstract, geometric, brand-aligned
+  function artSVG(kind, pal) {
+    const { bg, fg, accent } = palettes[pal];
+    const fgAlpha = (a) => fg + Math.round(a * 255).toString(16).padStart(2, '0');
+    const svgs = {
+      // architectural arch
+      arch: `
+        <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="250" fill="${bg}"/>
+          <path d="M40 250 L40 120 A60 60 0 0 1 160 120 L160 250 Z" fill="${accent}" opacity="0.92"/>
+          <line x1="0" y1="200" x2="200" y2="200" stroke="${fgAlpha(0.18)}" stroke-width="0.5"/>
+          <line x1="0" y1="220" x2="200" y2="220" stroke="${fgAlpha(0.18)}" stroke-width="0.5"/>
+          <line x1="0" y1="240" x2="200" y2="240" stroke="${fgAlpha(0.18)}" stroke-width="0.5"/>
+        </svg>`,
+      arch2: `
+        <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="250" fill="${bg}"/>
+          <path d="M0 250 L0 90 A100 100 0 0 1 200 90 L200 250 Z" fill="none" stroke="${fg}" stroke-width="0.8" opacity="0.55"/>
+          <path d="M30 250 L30 110 A70 70 0 0 1 170 110 L170 250 Z" fill="none" stroke="${fg}" stroke-width="0.8" opacity="0.5"/>
+          <path d="M60 250 L60 130 A40 40 0 0 1 140 130 L140 250 Z" fill="none" stroke="${fg}" stroke-width="0.8" opacity="0.45"/>
+          <circle cx="100" cy="100" r="3" fill="${accent}"/>
+        </svg>`,
+      // aperture mark big
+      aperture: `
+        <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="250" fill="${bg}"/>
+          <g transform="translate(100 130)">
+            <circle r="58" fill="none" stroke="${fg}" stroke-width="1" opacity="0.45"/>
+            <circle r="44" fill="none" stroke="${fg}" stroke-width="1" opacity="0.55"/>
+            <g stroke="${fg}" stroke-width="1" opacity="0.7">
+              ${Array.from({length: 12}).map((_,i)=>{
+                const a = (i/12)*Math.PI*2;
+                return `<line x1="${Math.cos(a)*20}" y1="${Math.sin(a)*20}" x2="${Math.cos(a)*44}" y2="${Math.sin(a)*44}"/>`;
+              }).join('')}
+            </g>
+            <circle r="6" fill="${accent}"/>
+          </g>
+        </svg>`,
+      // horizontal rules
+      rule: `
+        <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="250" fill="${bg}"/>
+          ${Array.from({length: 22}).map((_,i)=>{
+            const y = 30 + i*9;
+            const w = 30 + ((i*37)%140);
+            const x = 20 + ((i*53)%40);
+            return `<rect x="${x}" y="${y}" width="${w}" height="1" fill="${fgAlpha(0.55)}"/>`;
+          }).join('')}
+        </svg>`,
+      // typographic stack
+      stack: `
+        <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="250" fill="${bg}"/>
+          <g font-family="Newsreader, serif" fill="${fg}" text-anchor="middle">
+            <text x="100" y="100" font-size="42" font-style="italic" font-weight="300" letter-spacing="-1">Studio</text>
+            <text x="100" y="138" font-size="42" font-weight="400" letter-spacing="-1">No. 04</text>
+            <line x1="60" y1="160" x2="140" y2="160" stroke="${fg}" stroke-width="0.7"/>
+            <text x="100" y="180" font-family="Hanken Grotesk, sans-serif" font-size="8" letter-spacing="3">VOLUME ONE</text>
+          </g>
+        </svg>`,
+      // horizon landscape
+      horizon: `
+        <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="250" fill="${bg}"/>
+          <rect y="170" width="200" height="80" fill="${accent}" opacity="0.85"/>
+          <circle cx="148" cy="80" r="22" fill="${fg}" opacity="0.85"/>
+          <path d="M0 170 L50 150 L90 160 L140 140 L200 158 L200 170 Z" fill="${fgAlpha(0.25)}"/>
+        </svg>`,
+      // window frame grid
+      frame: `
+        <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="250" fill="${bg}"/>
+          <g stroke="${fgAlpha(0.6)}" stroke-width="0.8" fill="none">
+            <rect x="30" y="40" width="140" height="170"/>
+            <line x1="100" y1="40" x2="100" y2="210"/>
+            <line x1="30" y1="125" x2="170" y2="125"/>
+          </g>
+          <rect x="100" y="40" width="70" height="85" fill="${accent}" opacity="0.6"/>
+        </svg>`,
+      // monogram
+      mono: `
+        <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="250" fill="${bg}"/>
+          <g transform="translate(100 130)">
+            <circle r="62" fill="none" stroke="${fg}" stroke-width="0.8" opacity="0.4"/>
+            <text text-anchor="middle" font-family="Newsreader, serif" font-size="120" font-weight="300" fill="${fg}" dominant-baseline="central" font-style="italic" opacity="0.95">C</text>
+          </g>
+          <text x="100" y="225" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="7" letter-spacing="4" fill="${fgAlpha(0.7)}">COASTLINE · MMXXV</text>
+        </svg>`
+    };
+    return svgs[kind] || svgs.arch;
+  }
+
+  function cardHTML(w) {
+    return `
+      <article class="card ${w.light ? 'light' : ''}" style="--ar:${w.ar}">
+        <div class="art">${artSVG(w.art, w.palette)}</div>
+        <span class="idx">${w.idx}</span>
+        <div class="label">
+          <span class="ttl">${w.title}</span>
+          <span class="tag">${w.tag}</span>
+        </div>
+      </article>`;
+  }
+
+  // Split deck: even-indexed -> column A (up), odd -> column B (down)
+  const colA = works.filter((_, i) => i % 2 === 0);
+  const colB = works.filter((_, i) => i % 2 === 1);
+
+  // Render each column TWICE for seamless loop
+  document.getElementById('colA').innerHTML = [...colA, ...colA].map(cardHTML).join('');
+  document.getElementById('colB').innerHTML = [...colB, ...colB].map(cardHTML).join('');
+
+  // Stagger the down-column so the two columns aren't visually in lockstep
+  const colBInner = document.getElementById('colB');
+  colBInner.style.animationDelay = '-35s';
+
+  // ---------------- SERVICES ACCORDION ----------------
+  const services = document.querySelectorAll('[data-service]');
+  services.forEach(s => {
+    const head = s.querySelector('.service-head');
+    head.addEventListener('click', () => {
+      const isOpen = s.getAttribute('data-open') === '1';
+      services.forEach(o => {
+        o.removeAttribute('data-open');
+        o.querySelector('.service-head').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        s.setAttribute('data-open', '1');
+        head.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+<!-- ============ TWEAKS PANEL ============ -->
+<div class="tw-panel" id="twPanel" role="dialog" aria-label="Tweaks">
+  <div class="tw-head" id="twDrag">
+    <span class="tw-title">Tweaks</span>
+    <button class="tw-close" id="twClose" aria-label="Close tweaks">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="2" y1="2" x2="10" y2="10"/>
+        <line x1="10" y1="2" x2="2" y2="10"/>
+      </svg>
+    </button>
+  </div>
+  <div class="tw-body">
+    <div class="tw-help">
+      Click any element on the page to select it, then remove it. Press <kbd>Esc</kbd> to deselect.
+    </div>
+    <div class="tw-selection empty" id="twSel">
+      <div class="tw-selection-label">Selected</div>
+      <div class="tw-selection-value">No element selected</div>
+    </div>
+    <div class="tw-row">
+      <button class="tw-btn primary" id="twRemove" disabled>Remove element</button>
+    </div>
+    <div class="tw-row" style="margin-top:8px;">
+      <button class="tw-btn" id="twUndo" disabled>Undo last</button>
+      <button class="tw-btn" id="twReset" disabled>Restore all</button>
+    </div>
+    <div class="tw-meta">
+      <span>Removed</span>
+      <span id="twCount">0</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============ TWEAKS: REMOVE-ELEMENT MODE ============
+  // Persisted defaults — host rewrites this block when we postMessage.
+  const TWEAK_DEFAULS = /*EDITMODE-BEGIN*/{
+    "removed": [
+      "t15",
+      "t20",
+      "t80"
+    ]
+  }/*EDITMODE-END*/;
+
+  // Walk DOM in document order, assigning a stable tw-id to anything
+  // a user might reasonably want to remove. We skip the layout shells
+  // (page/left/right/main/body) and our own panel.
+  (function assignTwIds() {
+    const skip = new Set(['HTML','BODY','SCRIPT','STYLE','HEAD','META','LINK','TITLE','BR','DEFS']);
+    const skipClass = ['tw-panel','page','left','right','work-grid','col','col-inner','col-up','col-down','top-bar','hero','services','art','label'];
+    let n = 0;
+    const all = document.querySelectorAll('main *');
+    all.forEach(el => {
+      if (skip.has(el.tagName)) return;
+      if (el.closest('.tw-panel')) return;
+      // Skip the cloned work cards inside col-inner (they're duplicates;
+      // marking the originals is fine, the dupe gets a separate id but
+      // removing one removes both via shared selector logic below).
+      el.setAttribute('data-tw-id', 't' + (n++));
+    });
+  })();
+
+  // State
+  const state = {
+    removed: new Set(Array.isArray(TWEAK_DEFAULS.removed) ? TWEAK_DEFAULS.removed : []),
+    history: [],          // stack of removals applied this session
+    selected: null,       // current selected element
+    active: false
+  };
+
+  const panel   = document.getElementById('twPanel');
+  const selBox  = document.getElementById('twSel');
+  const selVal  = selBox.querySelector('.tw-selection-value');
+  const btnRm   = document.getElementById('twRemove');
+  const btnUndo = document.getElementById('twUndo');
+  const btnReset= document.getElementById('twReset');
+  const cntEl   = document.getElementById('twCount');
+
+  function describe(el) {
+    if (!el) return '';
+    const tag = el.tagName.toLowerCase();
+    const id  = el.id ? '#' + el.id : '';
+    const cls = el.classList.length ? '.' + [...el.classList].filter(c => !c.startsWith('tw-') && c !== 'light').slice(0,2).join('.') : '';
+    const txt = (el.textContent || '').trim().replace(/\s+/g,' ').slice(0, 32);
+    return tag + id + cls + (txt ? ' “' + txt + (el.textContent.length > 32 ? '…' : '') + '”' : '');
+  }
+
+  function applyRemovals() {
+    document.querySelectorAll('[data-tw-removed]').forEach(el => el.removeAttribute('data-tw-removed'));
+    state.removed.forEach(id => {
+      document.querySelectorAll('[data-tw-id="' + id + '"]').forEach(el => {
+        el.setAttribute('data-tw-removed', '1');
+      });
+    });
+    cntEl.textContent = state.removed.size;
+    btnUndo.disabled = state.history.length === 0;
+    btnReset.disabled = state.removed.size === 0;
+  }
+
+  function persist() {
+    try {
+      window.parent.postMessage({
+        type: '__edit_mode_set_keys',
+        edits: { removed: [...state.removed] }
+      }, '*');
+    } catch (_) {}
+  }
+
+  function setSelected(el) {
+    if (state.selected) state.selected.removeAttribute('data-tw-selected');
+    state.selected = el;
+    if (el) {
+      el.setAttribute('data-tw-selected', '1');
+      selBox.classList.remove('empty');
+      selVal.textContent = describe(el);
+      btnRm.disabled = false;
+    } else {
+      selBox.classList.add('empty');
+      selVal.textContent = 'No element selected';
+      btnRm.disabled = true;
+    }
+  }
+
+  // Click handler (active in tweaks mode only)
+  function onPageClick(e) {
+    if (!state.active) return;
+    if (e.target.closest('.tw-panel')) return;
+    const el = e.target.closest('[data-tw-id]');
+    if (!el) return;
+    e.preventDefault();
+    e.stopPropagation();
+    setSelected(el);
+  }
+
+  // Activation protocol
+  window.addEventListener('message', (ev) => {
+    const d = ev.data || {};
+    if (d.type === '__activate_edit_mode') activate();
+    else if (d.type === '__deactivate_edit_mode') deactivate();
+  });
+
+  function activate() {
+    state.active = true;
+    document.body.classList.add('tweaks-on');
+    document.addEventListener('click', onPageClick, true);
+  }
+  function deactivate() {
+    state.active = false;
+    document.body.classList.remove('tweaks-on');
+    setSelected(null);
+    document.removeEventListener('click', onPageClick, true);
+  }
+
+  // Close button
+  document.getElementById('twClose').addEventListener('click', () => {
+    deactivate();
+    try { window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); } catch(_) {}
+  });
+
+  // Esc to deselect
+  window.addEventListener('keydown', (e) => {
+    if (!state.active) return;
+    if (e.key === 'Escape') setSelected(null);
+  });
+
+  // Remove
+  btnRm.addEventListener('click', () => {
+    if (!state.selected) return;
+    const id = state.selected.getAttribute('data-tw-id');
+    if (!id || state.removed.has(id)) return;
+    state.removed.add(id);
+    state.history.push(id);
+    setSelected(null);
+    applyRemovals();
+    persist();
+  });
+
+  // Undo last
+  btnUndo.addEventListener('click', () => {
+    const id = state.history.pop();
+    if (!id) return;
+    state.removed.delete(id);
+    applyRemovals();
+    persist();
+  });
+
+  // Restore all
+  btnReset.addEventListener('click', () => {
+    state.removed.clear();
+    state.history = [];
+    applyRemovals();
+    persist();
+  });
+
+  // Draggable panel
+  (function makeDraggable() {
+    const handle = document.getElementById('twDrag');
+    let dragging = false, ox = 0, oy = 0;
+    handle.addEventListener('mousedown', (e) => {
+      if (e.target.closest('.tw-close')) return;
+      dragging = true;
+      const r = panel.getBoundingClientRect();
+      ox = e.clientX - r.left;
+      oy = e.clientY - r.top;
+      panel.style.right = 'auto';
+      panel.style.bottom = 'auto';
+      panel.style.left = r.left + 'px';
+      panel.style.top  = r.top  + 'px';
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      const x = Math.max(8, Math.min(window.innerWidth - panel.offsetWidth - 8, e.clientX - ox));
+      const y = Math.max(8, Math.min(window.innerHeight - panel.offsetHeight - 8, e.clientY - oy));
+      panel.style.left = x + 'px';
+      panel.style.top  = y + 'px';
+    });
+    window.addEventListener('mouseup', () => { dragging = false; });
+  })();
+
+  // Apply any persisted removals on load
+  applyRemovals();
+
+  // Announce availability to host (toolbar toggle)
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(_) {}
+</script>
+</body>
+</html>
