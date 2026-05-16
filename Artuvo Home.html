@@ -561,6 +561,7 @@
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 </head>
 <body>
   <main class="page" data-screen-label="01 Home">
@@ -1010,6 +1011,57 @@
 
   applyRemovals();
   try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(_) {}
+</script>
+
+<script>
+  /* Lenis smooth scroll */
+  const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+</script>
+
+<script>
+  /* Entrance animations */
+  function fadeIn(node, delay) {
+    node.style.cssText += `opacity:0;transform:translateY(24px);transition:opacity 0.75s cubic-bezier(0.25,0.1,0.25,1) ${delay}ms,transform 0.75s cubic-bezier(0.25,0.1,0.25,1) ${delay}ms;`;
+  }
+  function reveal(node) {
+    node.style.opacity = '1';
+    node.style.transform = 'translateY(0px)';
+  }
+
+  /* On-load: hero + work animate in after a short pause */
+  const onLoad = [
+    { sel: '.hero-title', delay: 120 },
+    { sel: '.hero-side',  delay: 240 },
+    { sel: '.work',       delay: 380 },
+  ];
+  onLoad.forEach(({ sel, delay }) => {
+    const node = document.querySelector(sel);
+    if (!node) return;
+    fadeIn(node, 0);
+    setTimeout(() => reveal(node), delay);
+  });
+
+  /* On-scroll: remaining sections */
+  const onScroll = [
+    { sel: '.services-intro', delay: 0 },
+    { sel: '.services-list',  delay: 100 },
+    { sel: '.cta',            delay: 0 },
+    { sel: '.foot',           delay: 0 },
+  ];
+  onScroll.forEach(({ sel, delay }) => {
+    const node = document.querySelector(sel);
+    if (!node) return;
+    fadeIn(node, delay);
+    new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        reveal(node);
+        obs.disconnect();
+      });
+    }, { rootMargin: '-20px' }).observe(node);
+  });
 </script>
 </body>
 </html>
