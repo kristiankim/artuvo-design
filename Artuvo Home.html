@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Artuvo Design — Design-led websites for founders and local businesses</title>
+<link rel="icon" href="assets/logo/Artuvo-Favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -40,8 +41,6 @@
   }
 
   .page {
-    max-width: var(--page-max);
-    margin: 0 auto;
     padding: 32px var(--gutter) 56px;
   }
 
@@ -53,15 +52,8 @@
     gap: 14px;
     padding-bottom: clamp(56px, 9vw, 120px);
   }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .brand svg.mark { width: 30px; height: 30px; display: block; }
-  .brand .wm {
-    font-family: var(--sans);
-    font-size: 12px;
-    letter-spacing: 0.42em;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
+  .brand { display: flex; align-items: center; }
+  .brand img.logo { height: 22px; width: auto; display: block; }
   .nav {
     display: flex;
     gap: 28px;
@@ -130,7 +122,7 @@
   .work {
     position: relative;
     margin: 0 calc(var(--gutter) * -1);
-    height: clamp(440px, 56vw, 620px);
+    height: clamp(560px, 72vw, 820px);
     overflow: hidden;
     isolation: isolate;
     background: var(--stone);
@@ -426,12 +418,18 @@
     padding-top: 22px;
     border-top: 1px solid var(--ink-12);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 10px 0;
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--ink-55);
+  }
+  @media (max-width: 600px) {
+    .foot { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .foot > *:first-child { width: 100%; }
   }
   .foot a { color: inherit; text-decoration: none; }
   .foot a:hover { color: var(--charcoal); }
@@ -567,20 +565,10 @@
 
     <header class="top-bar">
       <div class="brand">
-        <svg class="mark" viewBox="0 0 60 60" fill="none" aria-hidden="true">
-          <circle cx="30" cy="30" r="30" fill="#0F0F10"/>
-          <g stroke="#F6F3EF" stroke-width="1.1" stroke-linecap="round">
-            <line x1="22" y1="22" x2="10" y2="32"/>
-            <line x1="22" y1="22" x2="12.5" y2="38"/>
-            <line x1="22" y1="22" x2="16" y2="43"/>
-            <line x1="22" y1="22" x2="20" y2="46"/>
-            <line x1="22" y1="22" x2="9" y2="26"/>
-            <line x1="22" y1="22" x2="9" y2="20"/>
-            <line x1="22" y1="22" x2="12" y2="14"/>
-          </g>
-          <path d="M30 14 L42 46 L37.2 46 L34.4 38.5 L25.6 38.5 L22.8 46 L18 46 L30 14 Z M30 22.4 L26.9 34.6 L33.1 34.6 L30 22.4 Z" fill="#F6F3EF"/>
-        </svg>
-        <span class="wm">Artuvo</span>
+        <picture>
+          <source srcset="assets/logo/Artuvo-light.svg" media="(prefers-color-scheme: dark)">
+          <img class="logo" src="assets/logo/Artuvo-dark.svg" alt="Artuvo Design">
+        </picture>
       </div>
       <nav class="nav">
         <a href="#work">Work</a>
