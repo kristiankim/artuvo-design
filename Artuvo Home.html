@@ -75,16 +75,20 @@
   }
   .hero-title h1 {
     font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(72px, 11vw, 196px);
-    line-height: 0.92;
-    letter-spacing: -0.028em;
+    font-weight: 300;
+    font-size: clamp(38px, 5.2vw, 76px);
+    line-height: 1.08;
+    letter-spacing: -0.022em;
     text-wrap: balance;
   }
-  .hero-title h1 em {
-    font-style: italic;
+  .hero-title h2 {
+    font-family: var(--serif);
     font-weight: 300;
+    font-size: clamp(26px, 3.4vw, 52px);
+    line-height: 1.12;
+    letter-spacing: -0.018em;
     color: var(--blue-gray);
+    text-wrap: balance;
   }
   .hero-side {
     display: flex;
@@ -115,6 +119,23 @@
     line-height: 1.42;
     color: var(--ink-70);
     max-width: 38ch;
+    text-wrap: pretty;
+  }
+  .lede-primary {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(21px, 1.75vw, 28px);
+    line-height: 1.3;
+    color: var(--charcoal);
+    text-wrap: balance;
+  }
+  .lede-secondary {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(14px, 1.05vw, 17px);
+    line-height: 1.55;
+    color: var(--ink-55);
+    max-width: 40ch;
     text-wrap: pretty;
   }
 
@@ -356,7 +377,7 @@
   .service[data-open="1"] .service-panel { grid-template-rows: 1fr; }
   .service-panel-inner { overflow: hidden; min-height: 0; }
   .service-desc {
-    padding: 0 0 26px 54px;
+    padding: 0 0 28px 54px;
     font-family: var(--serif);
     font-weight: 300;
     font-size: clamp(15px, 1.1vw, 18px);
@@ -364,6 +385,25 @@
     color: var(--ink-70);
     max-width: 52ch;
     text-wrap: pretty;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .service-desc ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .service-desc ul li {
+    display: flex;
+    gap: 10px;
+    color: var(--ink-70);
+  }
+  .service-desc ul li::before {
+    content: "—";
+    color: var(--ink-40);
+    flex-shrink: 0;
   }
 
   /* CTA ------------------------------------------------- */
@@ -582,11 +622,12 @@
 
     <section class="hero">
       <div class="hero-title">
-        <h1>Artuvo<br/><em>Design</em>.</h1>
+        <h1>We help small businesses thrive —</h1>
+        <h2>with websites that convert and AI that cuts the busywork.</h2>
       </div>
       <div class="hero-side">
         <span class="hero-meta">We are</span>
-        <p class="lede">A creative studio elevating the quality of services through considered design — clear, credible, and made to earn trust.</p>
+        <p class="lede">A creative studio for founders and local businesses — design-led websites and practical AI workflows, built to earn trust and save time.</p>
       </div>
     </section>
 
@@ -609,45 +650,65 @@
     <section class="services" id="services">
       <div class="services-intro">
         <div class="services-eyebrow">What we do</div>
-        <h2 class="services-title">Four ways to <em>work</em> together.</h2>
-        <p class="services-sub">Pick the level of involvement that matches where you are — from a focused refresh to a full launch and ongoing care.</p>
+        <h2 class="services-title">Three ways to <em>work</em> together.</h2>
+        <p class="services-sub">A website that earns trust, AI workflows that cut the admin, and ongoing support to keep it all running.</p>
       </div>
 
       <div class="services-list">
         <div class="service" data-service>
           <button class="service-head" type="button" aria-expanded="false">
             <span class="num">01</span>
-            <span class="name">Website Refresh</span>
+            <span class="name">Website</span>
             <svg class="chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 5 7 9 11 5"/></svg>
           </button>
-          <div class="service-panel"><div class="service-panel-inner"><p class="service-desc">For businesses with an existing site that needs clearer messaging, better structure, stronger visuals, and sharper conversion paths — a practical upgrade, not a full rebuild.</p></div></div>
+          <div class="service-panel"><div class="service-panel-inner"><div class="service-desc">
+            <p>Create or improve a small business website — from a focused refresh to a full build.</p>
+            <ul>
+              <li>Content structure and page planning</li>
+              <li>Website design and development</li>
+              <li>Mobile-responsive implementation</li>
+              <li>Basic SEO and conversion path setup</li>
+              <li>Analytics setup recommendations</li>
+              <li>Launch checklist and trust signal review</li>
+            </ul>
+          </div></div></div>
         </div>
 
         <div class="service" data-service>
           <button class="service-head" type="button" aria-expanded="false">
             <span class="num">02</span>
-            <span class="name">Starter Website</span>
+            <span class="name">AI Automation Setup</span>
             <svg class="chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 5 7 9 11 5"/></svg>
           </button>
-          <div class="service-panel"><div class="service-panel-inner"><p class="service-desc">A focused 3 – 5 page website for founders and local businesses. Home, about, services, proof, and contact — built to look credible from day one.</p></div></div>
+          <div class="service-panel"><div class="service-panel-inner"><div class="service-desc">
+            <p>Practical AI workflows set up inside your existing tools — for non-technical owners who want the time savings without the setup headache.</p>
+            <ul>
+              <li>Draft replies to quotes, FAQs, or customer emails</li>
+              <li>Lead summaries and follow-up organisation</li>
+              <li>Call notes turned into tasks and email drafts</li>
+              <li>Content repurposing from notes or past posts</li>
+              <li>Internal knowledge base for services, pricing, and policies</li>
+              <li>Walkthrough, documentation, and owner handoff included</li>
+            </ul>
+          </div></div></div>
         </div>
 
         <div class="service" data-service>
           <button class="service-head" type="button" aria-expanded="false">
             <span class="num">03</span>
-            <span class="name">Launch Website</span>
-            <svg class="chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 5 7 9 11 5"/></svg>
-          </button>
-          <div class="service-panel"><div class="service-panel-inner"><p class="service-desc">The full launch: strategy, content structure, design direction, build, basic SEO, analytics setup, and a 30-day post-launch support window.</p></div></div>
-        </div>
-
-        <div class="service" data-service>
-          <button class="service-head" type="button" aria-expanded="false">
-            <span class="num">04</span>
             <span class="name">Care Plan</span>
             <svg class="chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 5 7 9 11 5"/></svg>
           </button>
-          <div class="service-panel"><div class="service-panel-inner"><p class="service-desc">Light ongoing support after launch — content edits, seasonal updates, platform checks, and a monthly look at analytics or inquiries.</p></div></div>
+          <div class="service-panel"><div class="service-panel-inner"><div class="service-desc">
+            <p>Light ongoing support after a website or AI project so your systems stay current and useful.</p>
+            <ul>
+              <li>Small website content edits</li>
+              <li>Monthly site check and analytics review</li>
+              <li>Seasonal updates and promo support</li>
+              <li>Priority response for small requests</li>
+              <li>Optional AI add-on: prompt tune-ups, workflow improvements, and quality review</li>
+            </ul>
+          </div></div></div>
         </div>
       </div>
     </section>
