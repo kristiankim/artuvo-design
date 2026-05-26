@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root {
+    --orange: #E2A533;
     --charcoal: #0F0F10;
     --blue-gray: #8FA1B3;
     --warm-gray: #D5D7DB;
@@ -75,11 +76,16 @@
   }
   .hero-title h1 {
     font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(38px, 5.2vw, 76px);
+    font-weight: 500;
+    font-size: clamp(44px, 6.2vw, 92px);
     line-height: 1.08;
     letter-spacing: -0.022em;
     text-wrap: balance;
+  }
+  .hero-title h1 em {
+    font-style: italic;
+    font-weight: inherit;
+    color: var(--orange);
   }
   .hero-title h2 {
     font-family: var(--serif);
@@ -622,7 +628,7 @@
 
     <section class="hero">
       <div class="hero-title">
-        <h1>We help small businesses thrive —</h1>
+        <h1>We help small businesses <em>thrive</em> —</h1>
         <h2>with websites that convert and AI that cuts the busywork.</h2>
       </div>
       <div class="hero-side">
