@@ -11,6 +11,7 @@
 <style>
   :root {
     --orange: #E2A533;
+    --espresso: #2B1F14;
     --charcoal: #0F0F10;
     --blue-gray: #8FA1B3;
     --warm-gray: #D5D7DB;
@@ -412,6 +413,86 @@
     flex-shrink: 0;
   }
 
+  /* WHY ARTUVO ------------------------------------------ */
+  .why {
+    position: relative;
+    margin: clamp(80px, 10vw, 140px) calc(var(--gutter) * -1) clamp(80px, 10vw, 140px);
+    padding: clamp(160px, 18vw, 260px) var(--gutter);
+    background:
+      linear-gradient(
+        to bottom,
+        var(--stone) 0%,
+        var(--espresso) 14%,
+        var(--espresso) 86%,
+        var(--stone) 100%
+      );
+    color: var(--stone);
+    overflow: hidden;
+  }
+  .why-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 3vw, 44px);
+  }
+  .why-eyebrow {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(246, 243, 239, 0.55);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .why-eyebrow::before,
+  .why-eyebrow::after {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: rgba(246, 243, 239, 0.4);
+    display: inline-block;
+  }
+  .why-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 5.4vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.022em;
+    color: var(--stone);
+  }
+  .why-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--orange);
+  }
+  .why-body {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(17px, 1.25vw, 21px);
+    line-height: 1.6;
+    color: rgba(246, 243, 239, 0.86);
+    text-wrap: pretty;
+  }
+  .why-closing {
+    margin-top: clamp(20px, 2.5vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(19px, 1.45vw, 24px);
+    line-height: 1.45;
+    color: var(--stone);
+  }
+
   /* CTA ------------------------------------------------- */
   .cta {
     display: flex;
@@ -715,6 +796,27 @@
               <li>Optional AI add-on: prompt tune-ups, workflow improvements, and quality review</li>
             </ul>
           </div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="why-inner">
+        <span class="why-eyebrow">What we believe</span>
+        <h2 class="why-title">Why <em>Artuvo</em></h2>
+        <div class="why-body">
+          <p>As design becomes easier to produce with AI, I think the human part matters more, not less.</p>
+          <p>Design is often about ordering things clearly. It helps people understand, move, choose, book, buy, and trust. Good design should reduce friction. It should make the next step feel obvious.</p>
+          <p>But art brings something different.</p>
+          <p>Art has character. It has a point of view. It has taste, memory, stubbornness, restraint, and obsession. It does not exist only to be useful. It carries the trace of a person making choices.</p>
+          <p>That is what I want Artuvo to stand for.</p>
+          <p>I may work with AI. I may use new tools to move faster, explore wider, and build sharper systems. But the goal is not to make things that feel automatically generated. The goal is to make things that feel considered, personal, and well crafted.</p>
+          <p>Artuvo lives in that space between art and utility.</p>
+        </div>
+        <div class="why-closing">
+          <p>Clear enough to work.</p>
+          <p>Distinct enough to remember.</p>
+          <p>Human enough to feel made.</p>
         </div>
       </div>
     </section>
